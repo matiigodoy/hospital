@@ -30,5 +30,47 @@ public class PlatoTest {
 		assertNotNull(plato);
 		assertEquals(NOMBRE_PLATO, plato.getNombre());
 	}
+	
+	@Test
+	public void queUnPlatoSeaAptoDiabetico() {
+		//Preparación
+		Plato plato;
+		TipoElaboracion elaboracion = TipoElaboracion.HORNO;
+		final String NOMBRE_PLATO = "Tortilla";
+		
+		HashSet<String> ingredientes = new HashSet<>();
+		ingredientes.add("harina");
+		ingredientes.add("aceite");
+		ingredientes.add("sal");
+		
+		//Ejecución
+		plato = new Plato(NOMBRE_PLATO, ingredientes, elaboracion);
+		
+		//Validación
+		assertNotNull(plato);
+		assertTrue(plato.esAptoDiabetico());
+	}
+	
+	@Test
+	public void queUnPlatoSeaAptoCeliaco() {
+		//Preparación
+		Plato plato;
+		TipoElaboracion elaboracion = TipoElaboracion.HORNO;
+		final String NOMBRE_PLATO = "Alfajor sin TACC";
+		
+		HashSet<String> ingredientes = new HashSet<>();
+		ingredientes.add("harina");
+		ingredientes.add("aceite");
+		ingredientes.add("sal");
+		ingredientes.add("huevo");
+		ingredientes.add("azucar");
+		
+		//Ejecución
+		plato = new Plato(NOMBRE_PLATO, ingredientes, elaboracion);
+		
+		//Validación
+		assertNotNull(plato);
+		assertTrue(plato.esAptoCeliaco());
+	}
 
 }

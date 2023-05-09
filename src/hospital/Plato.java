@@ -38,4 +38,20 @@ public class Plato {
 		this.elaboracion = elaboracion;
 	}
 
+	public boolean esAptoDiabetico() {
+		for (String ingrediente : ingredientes) {
+			if (ingrediente == "azucar") return false;
+		}
+		return true;
+	}
+
+	public boolean esAptoCeliaco() {
+		for (String ingrediente : ingredientes) {
+			if (ingrediente == "trigo" || ingrediente == "avena" || ingrediente == "cebada" || ingrediente == "centeno") {
+				return false;
+			}
+		}
+		return true;
+	}
+
 }
